@@ -1,18 +1,18 @@
 #BlueJ package file
 objectbench.height=76
-objectbench.width=938
-package.editor.height=350
-package.editor.width=840
-package.editor.x=953
-package.editor.y=524
+objectbench.width=647
+package.editor.height=556
+package.editor.width=549
+package.editor.x=0
+package.editor.y=0
 package.numDependencies=0
 package.numTargets=1
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
-target1.editor.height=1047
-target1.editor.width=974
-target1.editor.x=953
+target1.editor.height=728
+target1.editor.width=683
+target1.editor.x=683
 target1.editor.y=0
 target1.height=50
 target1.name=trees
