@@ -1,35 +1,22 @@
 #BlueJ package file
 objectbench.height=76
-<<<<<<< HEAD
-objectbench.width=647
-package.editor.height=221
-package.editor.width=549
-package.editor.x=0
-=======
 objectbench.width=938
 package.editor.height=354
 package.editor.width=840
-package.editor.x=-7
->>>>>>> origin/master
+package.editor.x=3
 package.editor.y=0
 package.numDependencies=0
 package.numTargets=1
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
-<<<<<<< HEAD
-target1.editor.height=728
-target1.editor.width=683
-target1.editor.x=683
-=======
 target1.editor.height=1047
-target1.editor.width=1483
-target1.editor.x=444
->>>>>>> origin/master
-target1.editor.y=0
+target1.editor.width=974
+target1.editor.x=863
+target1.editor.y=65
 target1.height=50
-target1.name=equestria
-target1.naviview.expanded=false
+target1.name=flash
+target1.naviview.expanded=true
 target1.showInterface=false
 target1.type=ClassTarget
 target1.typeParameters=
