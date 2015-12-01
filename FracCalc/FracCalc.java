@@ -17,9 +17,6 @@ public class FracCalc {
         String firstFrac = "bleh";
         String operand = "bleh";
         String secondFrac = "bleh";
-        int whole = 0;
-        int numerator = 0;
-        int denominator = 0;
         for (int i=0; i<input.length() ; i++){
             if (input.charAt(i) == ' '){
                 firstFrac = input.substring(0, i);
@@ -28,11 +25,20 @@ public class FracCalc {
             }
         }
         String first = parseFrac(firstFrac);
-        String second = parseFrac(secondFrac);        
+        String second = parseFrac(secondFrac); 
+        int wholeFirst = first.parseInt(6,first.indexOf(   ___));
+        int numerFirst = 0;
+        int denomFirst = 0;
+        int wholeSec = first.parseInt(6,first.indexOf(numerator));
+        int numerSec = 0;
+        int denomSec = 0;
+        int finalWhole = 0;
+        int finalNumerator = 0;
+        int finalDenominator = 0;
         if (operand == "+"){
-            whole = first.charAt(6)+second.charAt(6);
-            numerator = (first.charAt(18)*second.charAt(32))+(second.charAt(18)*first.charAt(32));
-            denominator = first.charAt(32)*second.charAt(32);
+            finalWhole = wholeFirst + wholeSec;
+            finalNumerator = (numerFirst*denomSec)+(numerSec*denomFirst);
+            finalDenominator = denomFirst*denomSec;
         }else if (operand == "-"){
             whole = first.charAt(6)-second.charAt(6);
             numerator = (first.charAt(18)*second.charAt(32))-(second.charAt(18)*first.charAt(32));
