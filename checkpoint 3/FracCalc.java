@@ -4,18 +4,22 @@ public class FracCalc {
     public static void main(String[] args) 
     {
         Scanner me = new Scanner(System.in);
-        System.out.print("add or subtract something: ");
+        System.out.print("lets do some math! ");
         String input = me.nextLine();
         while (!input.equals("quit")){
             String returningFrac = produceAnswer(input);
             System.out.println(returningFrac);        
         }
+        
    }   
    public static String produceAnswer(String input)
     { 
         String firstFrac = "bleh";
         String operand = "bleh";
         String secondFrac = "bleh";
+        int whole = 0;
+        int numerator = 0;
+        int denominator = 0;
         for (int i=0; i<input.length() ; i++){
             if (input.charAt(i) == ' '){
                 firstFrac = input.substring(0, i);
@@ -24,10 +28,33 @@ public class FracCalc {
             }
         }
         String first = parseFrac(firstFrac);
-        String second = parseFrac(secondFrac);
-        return second;
+        String second = parseFrac(secondFrac);        
+        if (operand == "+"){
+            whole = first.charAt(6)+second.charAt(6);
+            numerator = (first.charAt(18)*second.charAt(32))+(second.charAt(18)*first.charAt(32));
+            denominator = first.charAt(32)*second.charAt(32);
+        }else if (operand == "-"){
+            whole = first.charAt(6)-second.charAt(6);
+            numerator = (first.charAt(18)*second.charAt(32))-(second.charAt(18)*first.charAt(32));
+            denominator = first.charAt(32)*second.charAt(32);
+        }else if (operand == "/"){
+            whole = 0;
+            int improperFracOneNumerator = (first.charAt(32)*first.charAt(6))+first.charAt(18);
+            int improperFracTwoNumerator = (second.charAt(32)*second.charAt(6))+second.charAt(18);
+            numerator = improperFracOneNumerator*second.charAt(32);
+            denominator = first.charAt(32)*improperFracTwoNumerator;
+        }else{
+            whole = 0;
+            int improperFracOneNumerator = (first.charAt(32)*first.charAt(6))+first.charAt(18);
+            int improperFracTwoNumerator = (second.charAt(32)*second.charAt(6))+second.charAt(18);
+            numerator = improperFracOneNumerator*improperFracTwoNumerator;
+            denominator = first.charAt(32)*second.charAt(32);            
+        }
+        String answer = whole+"_"+numerator+"/"+denominator;
+        return answer;
     }        
-   public static String parseFrac(String fract){
+   public static String parseFrac(String fract)
+   {
         String whole = "bleh";
         String numerator = "bleh";
         String denominator = "bleh";
