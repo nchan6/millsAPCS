@@ -4,7 +4,7 @@ public class FracCalc {
     public static void main(String[] args) 
     {
         Scanner me = new Scanner(System.in);
-        System.out.print("lets do some math! ");
+        System.out.println("lets do some math! type \"quit to stop\" ");
         String input = me.nextLine();
         while (!input.equals("quit")){
             String returningFrac = produceAnswer(input);
@@ -26,12 +26,14 @@ public class FracCalc {
         }
         String first = parseFrac(firstFrac);
         String second = parseFrac(secondFrac); 
-        int wholeFirst = first.parseInt(6,first.indexOf(   ___));
-        int numerFirst = 0;
-        int denomFirst = 0;
-        int wholeSec = first.parseInt(6,first.indexOf(numerator));
-        int numerSec = 0;
-        int denomSec = 0;
+        int wholeFirst = Integer.parseInt(first.substring(6,first.indexOf("numerator:")));
+        int numerFirst = Integer.parseInt(first.substring(first.indexOf("numerator:")+1,first.indexOf("denominator:")-1));
+        int denomFirst = Integer.parseInt(first.substring(first.indexOf("denominator:")+1,first.length()+1));
+        int wholeSec = Integer.parseInt(second.substring(6,second.indexOf("numerator:")));
+        int numerSec = Integer.parseInt(second.substring(second.indexOf("numerator:")+1,second.indexOf("denominator:")-1));
+        int denomSec = Integer.parseInt(second.substring(second.indexOf("denominator:")+1,second.length()+1));
+        int impropFracOneNum = (denomFirst*wholeFirst)+numerFirst;
+        int impropFracTwoNum = (denomSec*wholeSec)+numerSec;
         int finalWhole = 0;
         int finalNumerator = 0;
         int finalDenominator = 0;
@@ -40,23 +42,19 @@ public class FracCalc {
             finalNumerator = (numerFirst*denomSec)+(numerSec*denomFirst);
             finalDenominator = denomFirst*denomSec;
         }else if (operand == "-"){
-            whole = first.charAt(6)-second.charAt(6);
-            numerator = (first.charAt(18)*second.charAt(32))-(second.charAt(18)*first.charAt(32));
-            denominator = first.charAt(32)*second.charAt(32);
+            finalWhole = wholeFirst - wholeSec;
+            finalNumerator = (numerFirst*denomSec)-(numerSec*denomFirst);
+            finalDenominator = denomFirst*denomSec;
         }else if (operand == "/"){
-            whole = 0;
-            int improperFracOneNumerator = (first.charAt(32)*first.charAt(6))+first.charAt(18);
-            int improperFracTwoNumerator = (second.charAt(32)*second.charAt(6))+second.charAt(18);
-            numerator = improperFracOneNumerator*second.charAt(32);
-            denominator = first.charAt(32)*improperFracTwoNumerator;
-        }else{
-            whole = 0;
-            int improperFracOneNumerator = (first.charAt(32)*first.charAt(6))+first.charAt(18);
-            int improperFracTwoNumerator = (second.charAt(32)*second.charAt(6))+second.charAt(18);
-            numerator = improperFracOneNumerator*improperFracTwoNumerator;
-            denominator = first.charAt(32)*second.charAt(32);            
+            finalWhole = 0;
+            finalNumerator = impropFracOneNum*denomSec;
+            finalDenominator = impropFracTwoNum*denomFirst;
+        }else if (operand == "*"){
+            finalWhole = 0;
+            finalNumerator = impropFracOneNum*impropFracTwoNum;
+            finalDenominator = denomFirst*denomSec;
         }
-        String answer = whole+"_"+numerator+"/"+denominator;
+        String answer = finalWhole+"_"+finalNumerator+"/"+finalDenominator;
         return answer;
     }        
    public static String parseFrac(String fract)
