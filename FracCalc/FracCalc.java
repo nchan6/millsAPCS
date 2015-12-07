@@ -25,13 +25,19 @@ public class FracCalc {
             }
         }
         String first = parseFrac(firstFrac);
-        String second = parseFrac(secondFrac); 
-        int wholeFirst = Integer.parseInt(first.substring(6,first.indexOf("numerator:")));
-        int numerFirst = Integer.parseInt(first.substring(first.indexOf("numerator:")+1,first.indexOf("denominator:")-1));
-        int denomFirst = Integer.parseInt(first.substring(first.indexOf("denominator:")+1,first.length()+1));
-        int wholeSec = Integer.parseInt(second.substring(6,second.indexOf("numerator:")));
-        int numerSec = Integer.parseInt(second.substring(second.indexOf("numerator:")+1,second.indexOf("denominator:")-1));
-        int denomSec = Integer.parseInt(second.substring(second.indexOf("denominator:")+1,second.length()+1));
+        String second = parseFrac(secondFrac);
+        String wholeFirstStr = first.substring(6,first.indexOf(" numerator:"));
+        int wholeFirst = Integer.parseInt(wholeFirstStr);
+        String numerFirstStr = first.substring(first.indexOf("numerator:")+10,first.indexOf(" denominator:"));
+        int numerFirst = Integer.parseInt(numerFirstStr);
+        String denomFirstStr = first.substring(first.indexOf("denominator:")+12,first.length()-3);
+        int denomFirst = Integer.parseInt(denomFirstStr);
+        String wholeSecStr = second.substring(6,second.indexOf(" numerator:"));
+        int wholeSec = Integer.parseInt(wholeSecStr);
+        String numerSecStr = second.substring(second.indexOf("numerator:")+10,second.indexOf(" denominator:"));
+        int numerSec = Integer.parseInt(numerSecStr);
+        String denomSecStr = second.substring(second.indexOf("denominator:")+12,second.length()-1);
+        int denomSec = Integer.parseInt(denomSecStr);
         int impropFracOneNum = (denomFirst*wholeFirst)+numerFirst;
         int impropFracTwoNum = (denomSec*wholeSec)+numerSec;
         int finalWhole = 0;
@@ -85,6 +91,6 @@ public class FracCalc {
             numerator = "0";
             denominator = "1";
         }
-        return "whole:"+whole+" numerator:"+numerator+" denominator:"+denominator; 
+        return "whole:"+whole+" numerator:"+numerator+" denominator:"+denominator+" "; 
    }
 }
