@@ -98,5 +98,15 @@ public class IntArrayWorker
       }
     }
   }
+  
+  public void getCount()
+  {
+      
+  }
+  public void getLargest()
+  {
+      
+  }
+    
  
 }
