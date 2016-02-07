@@ -78,8 +78,7 @@ public class IntArrayWorker
     System.out.println();
   }
   
-  
-  /** 
+   /** 
    * fill the array with a pattern
    */
   public void fillPattern1()
@@ -99,14 +98,25 @@ public class IntArrayWorker
     }
   }
   
-  public void getCount()
+  public int getCount()
   {
-      
+      int count = 0;
+      for (int i = 0; i < matrix.length; i++){
+          count++;
+        }
+      return count;
   }
-  public void getLargest()
+  
+  public int getLargest()
   {
-      
+      int largestValue = 0;
+      int[][] matrix;
+      for (int i = 0; i < matrix.length; i++){
+          if (largestValue <= matrix){
+              largestValue = matrix;
+        }
+      }
+      return largestValue;
   }
-    
- 
+
 }
