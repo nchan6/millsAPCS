@@ -116,8 +116,38 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
+    this.write("dogMirrorVertical.jpg");
   }
-  
+  public void mirrorHorizontal(){
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topPixel = null;
+      Pixel bottomPixel = null;
+      int height = pixels.length;
+      for (int row = 0; row < height /2; row++){
+          for (int col = 0; col<pixels[0].length; col++){
+              topPixel = pixels[row][col];
+              bottomPixel = pixels[height-1-row][col];
+              bottomPixel.setColor(topPixel.getColor());
+            }
+        }
+    }
+  public void mirrorVerticalR2L()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel rightPixel = null;
+    Pixel leftPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        rightPixel = pixels[row][col];
+        leftPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    } 
+    this.write("dogMirrorVerticalR2L.jpg");
+  }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -141,6 +171,20 @@ public class Picture extends SimplePicture
       }
     }
   }
+  public void mirrorPartOfPic(){
+      int mirrorPoint = 391;
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      for (int row = 130; row < 200; row++){
+          for (int col = 324; col < mirrorPoint; col++){
+              leftPixel = pixels[row][col];
+              rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
+              rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+        this.write("dogMirrorPartOfPic.jpg");
+    }
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -215,6 +259,7 @@ public class Picture extends SimplePicture
           leftPixel.setColor(Color.WHITE);
       }
     }
+    this.write("dogEdgeDetection.jpg");
   }
   
   
@@ -229,5 +274,36 @@ public class Picture extends SimplePicture
     beach.zeroBlue();
     beach.explore();
   }
-  
-} // this } is the end of class Picture, put all new methods before this
+  public void keepOnlyBlue(){
+      Pixel[][]pixels = this.getPixels2D();
+      for (Pixel[] row : pixels){
+          for (Pixel p : row){
+              p.setRed(0);
+              p.setGreen(0);
+            }
+        }
+  }
+  public void greyScale(){
+      Pixel[][] pixels= this.getPixels2D();
+      for (Pixel[] row : pixels){
+          for (Pixel p: row){
+              int greenVal = p.getGreen();
+              p.setRed(greenVal);
+              p.setBlue(greenVal);
+            }
+        }
+        this.write("dogGrayScale.jpg");
+  }
+  public void negative(){
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] row : pixels){
+          for (Pixel p : row){
+              p.setRed(255 - p.getRed());
+              p.setGreen(255 - p.getGreen());
+              p.setBlue(255 - p.getBlue());
+            }
+        }
+        this.write("dogNegative.jpg");
+    }
+}
+ // this } is the end of class Picture, put all new methods before this

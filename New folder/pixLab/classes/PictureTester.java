@@ -16,13 +16,53 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+   /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+   /** Method to test greyScale */
+  public static void testGrayScale()
+  {
+    Picture beach = new Picture("dog.jpg");
+    beach.explore();
+    beach.greyScale();
+    beach.explore();
+  }
+   /** Method to test negative*/
+  public static void testNegate()
+  {
+    Picture dog = new Picture("dog.jpg");
+    dog.explore();
+    dog.negative();
+    dog.explore();
+  }
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("dog.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
+    caterpillar.explore();
+  }
+  /** Method to test mirrorVerticalR2L */
+  public static void testMirrorVerticalR2L()
+  {
+    Picture caterpillar = new Picture("dog.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalR2L();
+    caterpillar.explore();
+  }
+  /** Method to test mirrorHorizontal */
+  public static void testMirrorHorizontal()
+  {
+    Picture caterpillar = new Picture("beach.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
   
@@ -32,6 +72,14 @@ public class PictureTester
     Picture temple = new Picture("temple.jpg");
     temple.explore();
     temple.mirrorTemple();
+    temple.explore();
+  }
+  /** Method to test mirrorPartOfPic */
+  public static void testMirrorPartOfPic()
+  {
+    Picture temple = new Picture("dog.jpg");
+    temple.explore();
+    temple.mirrorPartOfPic();
     temple.explore();
   }
   
@@ -46,8 +94,8 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
+    Picture swan = new Picture("dog.jpg");
+    swan.edgeDetection(25);
     swan.explore();
   }
   
@@ -58,21 +106,24 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    //testGrayscale();
+    //testGrayScale();
     //testFixUnderwater();
     //testMirrorVertical();
+    //testMirrorVerticalR2L();
+    //testMirrorHorizontal();
     //testMirrorTemple();
+    //testMirrorPartOfPic();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
