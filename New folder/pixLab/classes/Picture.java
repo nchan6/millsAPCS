@@ -141,8 +141,8 @@ public class Picture extends SimplePicture
     {
       for (int col = 0; col < width / 2; col++)
       {
-        rightPixel = pixels[row][col];
-        leftPixel = pixels[row][width - 1 - col];
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
         leftPixel.setColor(rightPixel.getColor());
       }
     } 
@@ -220,18 +220,12 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
+    Picture flower1 = new Picture("dog.jpg");
+    this.copy(flower1,100,100);
     this.copy(flower1,200,0);
-    Picture flowerNoBlue = new Picture(flower2);
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
     this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
     this.mirrorVertical();
-    this.write("collage.jpg");
+    this.write("dogCollage.jpg");
   }
   
   
@@ -262,6 +256,19 @@ public class Picture extends SimplePicture
     this.write("dogEdgeDetection.jpg");
   }
   
+  public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(pixelObj.getRed()*4);
+        pixelObj.setGreen((int) (pixelObj.getGreen()*.81));
+      }
+    }
+    this.write("waterFish.jpg");
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
@@ -305,5 +312,28 @@ public class Picture extends SimplePicture
         }
         this.write("dogNegative.jpg");
     }
-}
+  public void mirrorDiagonal(){
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topRightPixel = null;
+    Pixel bottomLeftPixel = null;
+    int maxLength;
+    if (pixels.length < pixels[0].length) { 
+        maxLength = pixels.length; 
+    }
+    else {
+        maxLength = pixels[0].length; 
+    }
+    for (int row = 0; row < maxLength; row++)
+    {
+      for (int col = row; col < maxLength; col++)
+        {
+          topRightPixel = pixels[row][col];
+          bottomLeftPixel = pixels[col][row];
+          topRightPixel.setColor(bottomLeftPixel.getColor());
+      }
+    }
+   this.write("dogDiagonal.jpg");
+  }
+    }
+
  // this } is the end of class Picture, put all new methods before this

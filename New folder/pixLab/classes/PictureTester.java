@@ -65,7 +65,14 @@ public class PictureTester
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
-  
+  /** Method to test mirrorDiagonal */
+  public static void testMirrorDiagonal()
+  {
+    Picture caterpillar = new Picture("dog.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorDiagonal();
+    caterpillar.explore();
+  }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -82,7 +89,14 @@ public class PictureTester
     temple.mirrorPartOfPic();
     temple.explore();
   }
-  
+  /** Method to test water */
+  public static void testFixUnderwater()
+  {
+    Picture temple = new Picture("water.jpg");
+    temple.explore();
+    temple.fixUnderwater();
+    temple.explore();
+  }
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -112,7 +126,7 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayScale();
-    //testFixUnderwater();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalR2L();
     //testMirrorHorizontal();
@@ -123,7 +137,7 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    testEdgeDetection();
+    //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
