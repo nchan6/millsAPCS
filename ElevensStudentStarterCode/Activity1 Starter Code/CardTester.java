@@ -8,6 +8,7 @@ public class CardTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
-		
+		Card cardDrawn = new Card("hearts", "queen", 12);
+		System.out.println(cardDrawn);
 	}
 }
