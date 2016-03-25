@@ -30,13 +30,11 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-	    this.cards = new Arraylist<Card>();
-		for (int i = 0; i < suits.length; i++){
-		    for ( int j = 0; j < ranks.length; j++){
-		        Card cardd = new Card(ranks[j], suits[i]; values[j]);
-		        this.cards.add(cardd);
-		      }
-		  }
+	    this.cards = new ArrayList<Card>();
+		for (int i = 0; i < ranks.length; i++){
+		    Card cardd = new Card(ranks[i], suits[i], values[i]);
+		    this.cards.add(cardd);
+		}
         this.size = this.cards.size();
 		shuffle();
 	}
@@ -47,7 +45,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		if (this.card.size() == 0){
+		if (this.cards.size() == 0){
 		    return true;
 	    }else{
 	        return false;
